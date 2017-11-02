@@ -2,24 +2,200 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>Django Girls blog</title>
+        <title>Burak IŞIK Blog</title>
+        <!--
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        -->
+        <link href="{% static 'css/blog.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
+
     </head>
 
-    <body>
+    <body >
+    <!--
         <div class="page-header">
+              <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             <h1><a href="/">Burak IŞIK Blog</a></h1>
         </div>
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
-                {% block content %}
-                {% endblock %}
+
+                  there were  block   'block content'  'endblock' tag here
                 </div>
             </div>
         </div>
+      -->
+
+    {% include "blog/header.html" %}
+
+
+ <section id="blog-section" >
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-8">
+           <div class="row">
+            {% block content %}
+            {% endblock %}
+           </div>
+          </div>
+        <!--// RECENT POST===========-->
+         <div class="col-lg-4">
+               <div class="widget-sidebar">
+                 <h2 class="title-widget-sidebar">RECENT POST</h2>
+                   <div class="content-widget-sidebar">
+                    <ul>
+
+                    {% for post in posts|slice:":5"%}
+
+                             <li class="recent-post">
+                                <div class="post-img">
+                                <img src="https://pentest.blog/wp-content/uploads/ddos-750x410.jpg">
+                                </div>
+                                <a href="{% url 'post_detail' pk=post.pk %}"><h5>{{ post.title }}</h5></a>
+                                <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> {{ post.published_date}}</small></p>
+                              </li>
+                              <hr>
+
+                     {% endfor %}
+                        <!--
+                         <li class="recent-post">
+                        <div class="post-img">
+                         <img src="https://lh3.googleusercontent.com/-ndZJOGgvYQ4/WM1ZI8dH86I/AAAAAAAADeo/l67ZqZnRUO8QXIQi38bEXuxqHfVX0TV2gCJoC/w424-h318-n-rw/thumbnail8.jpg" class="img-responsive">
+                         </div>
+                         <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
+                         <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
+                        </li>
+                        <hr>
+
+                         <li class="recent-post">
+                        <div class="post-img">
+                         <img src="https://lh3.googleusercontent.com/-ndZJOGgvYQ4/WM1ZI8dH86I/AAAAAAAADeo/l67ZqZnRUO8QXIQi38bEXuxqHfVX0TV2gCJoC/w424-h318-n-rw/thumbnail8.jpg" class="img-responsive">
+                         </div>
+                         <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
+                         <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
+                        </li>
+                       -->
+
+                    </ul>
+                   </div>
+                 </div>
+
+
+
+        <!--=====================
+               CATEGORIES
+          ======================-->
+             <div class="widget-sidebar">
+              <h2 class="title-widget-sidebar">Tags</h2>
+                       <div class="tags">
+                            <a href="#"><span class="tag">Java</span></a>
+                            <a href="#"><span class="tag">C++</span></a>
+                            <a href="#"><span class="tag">C#</span></a>
+                            <a href="#"><span class="tag">C</span></a>
+                            <a href="#"><span class="tag">Python</span></a>
+                            <a href="#"><span class="tag">JavaScript</span></a>
+                            <a href="#"><span class="tag">SQL</span></a>
+                            <a href="#"><span class="tag">Android</span></a>
+                            <a href="#"><span class="tag">CSS</span></a>
+                            <a href="#"><span class="tag">PHP</span></a>
+                            <a href="#"><span class="tag">AngularJS</span></a>
+                            <a href="#"><span class="tag">VueJS</span></a>
+                            <a href="#"><span class="tag">Laravel</span></a>
+                            <a href="#"><span class="tag">Bootstrap</span></a>
+                            <a href="#"><span class="tag">Symfony</span></a>
+                            <a href="#"><span class="tag">SVG</span></a>
+                        </div>
+             </div>
+
+              <!--=====================
+                    NEWSLATTER
+             ======================-->
+<div class="widget-sidebar">
+ <h2 class="title-widget-sidebar">MAIL LIST</h2>
+  <p>Son Gönderilerden Haberdar Olmak İçin Mailinizi Gönderebilirsiniz.</p>
+<div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+      <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+    </div>
+    <button type="button" class="btn btn-warning">Gönder</button>
+             </div>
+
+
+             </div>
+           </div>
+         </div>
+
+    </section>
+
+
+
+
+	 <script src="js/jquery-3.1.1.js"></script>
+	 <script src="js/bootstrap.js"></script>
+	 <script>
+         $(document).ready(function(){
+         $('[data-toggle="tooltip"]').tooltip();
+         });
+
+
+
+
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+  <hr>
+    <div class="col-lg-12">
+      <div class="col-md-8" style="margin-bottom: 10px">
+
+         <a href="https://www.facebook.com/profile.php?id=100011359712165" title="facebook" ><i class="fa fa-facebook"></i></a>
+         <a href="#" ><i class="fa fa-twitter"></i></a>
+         <a href="#" title="Google +"><i class="fa fa-google-plus"></i></a>
+         <a href="https://www.linkedin.com/in/burak-i%C5%9F%C4%B1k-a57803127/"  title="Linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+      <div class="col-md-4">
+        <p class="muted pull-right">© 2017 Burak IŞIK. All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
     </body>
 </html>
+
+
+
+
