@@ -32,8 +32,8 @@
              {{ post.text}}
         </div>
      </aside>
-    </div>
 
+        <hr>
 
      <!-- # load the tags -->
      {% load disqus_tags %}
@@ -41,7 +41,7 @@
      {% disqus_show_comments "http-buraksk70-pythonanywhere-com" %}
      <!-- # get the url for the current object to get the right comments -->
      {% set_disqus_url object.get_absolute_url %}
-    
+    </div>
 {% endblock %}
 
 
