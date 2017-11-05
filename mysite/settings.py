@@ -25,7 +25,7 @@ SECRET_KEY = 'vdo4hc+ui_-zioj#qr9(z7_r8kd7wxn!k2$m_0dcidh&b+4-41'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['buraksk70.pythonanywhere.com']
+ALLOWED_HOSTS = ['buraksk70.pythonanywhere.com','127.0.0.1']
 
 # Application definition
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django.contrib.sites',
-
+    'disqus',
     'blog',
    
 ]
@@ -124,5 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-DISQUS_API_KEY = 'h1OX0HGmTHvpFk74fhiiVJGCLWKBuMmYONIWE900zMiey552ck3Zkp5yGaiR6hcj'
-DISQUS_WEBSITE_SHORTNAME = 'buraksk70.pythonanywhere.com'
+DISQUS_API_KEY = 'pOqkrvO4gLbmdoYO4IGeWxyNoasdB0PfWw9qdHLbiAql4VKh4urXfR8Le6u8Xtbc'
+DISQUS_WEBSITE_SHORTNAME = 'http-buraksk70-pythonanywhere-com'
+
+SITE_ID = '1'
