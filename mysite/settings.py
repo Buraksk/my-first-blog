@@ -25,8 +25,7 @@ SECRET_KEY = 'vdo4hc+ui_-zioj#qr9(z7_r8kd7wxn!k2$m_0dcidh&b+4-41'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['buraksk70.pythonanywhere.com']
 
 # Application definition
 
@@ -37,6 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django.contrib.sites',
+
     'blog',
    
 ]
@@ -122,3 +124,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+DISQUS_API_KEY = 'h1OX0HGmTHvpFk74fhiiVJGCLWKBuMmYONIWE900zMiey552ck3Zkp5yGaiR6hcj'
+DISQUS_WEBSITE_SHORTNAME = 'buraksk70.pythonanywhere.com'
