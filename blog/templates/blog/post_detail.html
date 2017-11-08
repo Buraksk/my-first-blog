@@ -24,8 +24,9 @@
                {% if post.published_date %}
                  <p style="display:inline"><small><i class="fa fa-calendar" data-original-title="" title=""></i> {{ post.published_date}}&emsp;</small> </p>
                {% endif %}
-             <p style="display:inline"><small><i class="fa fa-user fa-fw" aria-hidden="true"></i>{{ post.author}}</small></p>
-             </p>
+               <p style="display:inline"><small><i class="fa fa-user fa-fw" aria-hidden="true"></i>{{ post.author}}&emsp;</small></p>
+               <p style="display:inline"><small><i class="fa fa-eye fa-fw " aria-hidden="true"></i>{{ post.view_count}}&emsp;</small></p>
+               </p>
          </div>
 
         <div class="text">
@@ -33,7 +34,7 @@
         </div>
      </aside>
 
-        <hr>
+   <hr>
 
      <!-- # load the tags -->
      {% load disqus_tags %}
@@ -41,8 +42,13 @@
      {% disqus_show_comments "http-buraksk70-pythonanywhere-com" %}
      <!-- # get the url for the current object to get the right comments -->
      {% set_disqus_url object.get_absolute_url %}
+
     </div>
 {% endblock %}
+
+
+
+
 
 
 

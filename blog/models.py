@@ -12,6 +12,7 @@ class Post(models.Model): #models.Model means that the Post is a Django Model, s
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
+    view_count = models.PositiveIntegerField()
 
     def publish(self):
         self.published_date = timezone.now()
