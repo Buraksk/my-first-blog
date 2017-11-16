@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'disqus',
     'blog',
+    'ckeditor',
    
 ]
 
@@ -128,3 +129,5 @@ DISQUS_API_KEY = 'pOqkrvO4gLbmdoYO4IGeWxyNoasdB0PfWw9qdHLbiAql4VKh4urXfR8Le6u8Xt
 DISQUS_WEBSITE_SHORTNAME = 'http-buraksk70-pythonanywhere-com'
 
 SITE_ID = '1'
+
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'

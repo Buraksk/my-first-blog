@@ -44,7 +44,7 @@
                          </div>
 
                         <div class="text">
-                             {{ post.text|truncatechars:1000 }}
+                             {{ post.text|safe|truncatechars:1000 }}
                         </div>
 
 

@@ -1,13 +1,13 @@
 from django.db import models
 from django.utils import timezone
-
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
 class Post(models.Model): #models.Model means that the Post is a Django Model, so Django knows that it should be saved in the database.
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    text = RichTextField()#models.TextField()
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
